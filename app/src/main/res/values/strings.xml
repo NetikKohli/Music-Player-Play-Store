@@ -1,0 +1,20 @@
+<resources>
+
+    <string name="todo">todo</string>
+    <string name="speed">Speed</string>
+    <string name="title_activity_main1">MainActivity1</string>
+    <string name="tab_text_1"></string>
+    <string name="tab_text_2">Musics</string>
+    <string name="video_player">V&amp;M  player</string>
+    <string name="video_and_music_thumbnail">Video and music thumbnail</string>
+    <string name="hello">Hello</string>
+    <string name="hello_ji">hello ji</string>
+    <string name="helloji">hello</string>
+    <string name="app_name">Music Player app</string>
+
+    <!--
+    <string name="adsID">ca-app-pub-9471278395924579~4171111818</string>
+    <string name="BannerId">ca-app-pub-9471278395924579/1470633141</string>
+    <string name="Instentitial">ca-app-pub-9471278395924579/1574536935</string>
+    <string name="AppOpenID">"ca-app-pub-3940256099942544/3419835294"</string>-->
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/search_music"
+        android:title="Search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="android.widget.SearchView" />
+
+    <item android:id="@+id/sort_by"
+        android:title="Sort By"
+        android:icon="@drawable/baseline_swap_vert_24"
+        app:showAsAction="ifRoom"/>
+
+
+    <item android:id="@+id/refresh_files"
+        android:title="Refresh"
+        app:showAsAction="never"/>
+
+
+   <item android:id="@+id/helpfeed"
+       android:title="Help and Feedback"
+       app:showAsAction="never"/>
+
+    <item android:id="@+id/more_apps"
+        android:title="Your More Apps"
+        app:showAsAction="never"
+        />
+</menu>

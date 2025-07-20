@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipemusicrefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recyclermusic"
+      android:layout_width="match_parent"
+
+      android:layout_height="match_parent" />
+
+  <LinearLayout
+      android:id="@+id/nomusic"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="visible"
+      android:gravity="center"
+      android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+     app:cardBackgroundColor="#F8067CFB"
+        android:layout_marginBottom="40dp"
+        app:cardCornerRadius="35dp">
+      <ImageView
+          android:layout_width="55dp"
+          android:layout_height="55dp"
+          android:layout_gravity="center"
+          android:src="@drawable/musiclogo"/>
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="No music found in your Device"/>
+
+      <Button
+          android:id="@+id/refreshMusic"
+          android:layout_width="wrap_content"
+          android:layout_height="48dp"
+          android:layout_marginTop="10dp"
+          android:gravity="center"
+          android:text="Click to Refresh" />
+  </LinearLayout>
+</RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
