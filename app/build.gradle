@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.nicekoh.musicplayer'
-    compileSdk 36
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.nicekoh.musicplayer"

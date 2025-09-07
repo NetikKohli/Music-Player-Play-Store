@@ -1,4 +1,4 @@
-/*
+package com.nicekoh.musicplayer;/*
 package com.nicekoh.videoplayer;
 
 import android.app.Activity;
@@ -24,14 +24,14 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks {
     private static boolean isShowingAd = false;
     private AppOpenAd.AppOpenAdLoadCallback loadCallback;
     private Activity currentActivity;
-    private final VideoActivity2 myApplication;
+    private final VideoActivityGallery myApplication;
 
     */
 /** Constructor
      * @param myApplication*//*
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
-    public AppOpenManager(VideoActivity2 myApplication) {
+    public AppOpenManager(VideoActivityGallery myApplication) {
         this.myApplication = myApplication;
     }
     

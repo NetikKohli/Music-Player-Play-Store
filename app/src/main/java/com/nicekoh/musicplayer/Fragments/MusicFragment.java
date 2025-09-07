@@ -1,4 +1,4 @@
-package com.nicekoh.musicplayer.main;
+package com.nicekoh.musicplayer.Fragments;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -27,6 +27,12 @@ import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Locale;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
@@ -36,13 +42,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.nicekoh.musicplayer.R;
-import com.nicekoh.musicplayer.Recycler_adapter_music;
+import com.nicekoh.musicplayer.adapters.Recycler_adapter_music;
 import com.nicekoh.musicplayer.VideoModal;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Locale;
 
 
 public class MusicFragment extends Fragment implements View.OnClickListener, SearchView.OnQueryTextListener {
@@ -51,7 +52,7 @@ public class MusicFragment extends Fragment implements View.OnClickListener, Sea
     int lastSelectedOption=2;
     String sortOrder;
     public static final String MY_PREF = "my pref";
-    public static ArrayList<VideoModal> arrayLists;
+    public ArrayList<VideoModal> arrayLists;
     SwipeRefreshLayout swipeRefreshLayout;
     SharedPreferences preferences;
     Recycler_adapter_music adapter;
@@ -284,7 +285,6 @@ public class MusicFragment extends Fragment implements View.OnClickListener, Sea
                 getActivity().finish();
                 startActivity(getActivity().getIntent());
                 break;
-
             case R.id.sort_by:
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
                 alertDialog.setTitle("Sort By");

@@ -1,9 +1,7 @@
 package com.nicekoh.musicplayer;
 
-import static com.nicekoh.musicplayer.MainActivity.countVid;
 
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -15,16 +13,14 @@ import com.google.android.exoplayer2.PlaybackException;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ConcatenatingMediaSource;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.StyledPlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
-import com.nicekoh.musicplayer.main.MusicFragment;
+import com.nicekoh.musicplayer.utils.NotificationUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.File;
+import java.util.ArrayList;
 
 
 public class MusicAct2 extends AppCompatActivity {
@@ -32,7 +28,9 @@ public class MusicAct2 extends AppCompatActivity {
    SharedPreferences sharedPreferences;
     NotificationUtils notificationUtils;
     SharedPreferences.Editor myEdit;
+    ArrayList<VideoModal> arrayList;
 int cardPostion;
+    /* access modifiers changed from: protected */
     protected void onCreate(Bundle savedInstanceState) {
         MediaItem mediaItem;
         super.onCreate(savedInstanceState);
@@ -47,6 +45,8 @@ int cardPostion;
             myEdit = sharedPreferences.edit();
             // write all the data entered by the user in SharedPreference and apply
             myEdit.putInt("POSI", cardPostion);
+            arrayList= i.getParcelableArrayList("ArrayList");
+
             myEdit.apply();
 
         } else {
@@ -55,8 +55,8 @@ int cardPostion;
         this.exoPlayer = new SimpleExoPlayer.Builder(this).build();
 
 
-        for (int x = 0; x < MusicFragment.arrayLists.size(); x++){
-            mediaItem = MediaItem.fromUri(MusicFragment.arrayLists.get(x).path);
+        for (int x = 0; x < arrayList.size(); x++){
+            mediaItem = MediaItem.fromUri(arrayList.get(x).path);
             this.exoPlayer.addMediaItem(mediaItem);
     }
 
@@ -73,7 +73,7 @@ int cardPostion;
         exoPlayer.seekToDefaultPosition(cardPostion);
 
 
-        countVid++;
+        //countVid++;
        // Log.d("Ads CountVid","Ads countvid:"+ countVid+" in Fragment Video");
 
         this.exoPlayer.prepare();

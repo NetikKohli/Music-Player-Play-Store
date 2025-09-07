@@ -24,10 +24,9 @@ import org.jetbrains.annotations.NotNull;
 
 import static java.util.Objects.requireNonNull;
 
+public class ScreenSpash extends AppCompatActivity {
 
-public class SplashScreen extends AppCompatActivity {
-
-    int a=1;
+int a=1;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +38,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 if (checkPermission()) {
-                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                    startActivity(new Intent(ScreenSpash.this, MainActivity.class));
                     finish();
                 }
                 requestPermissions();
@@ -65,18 +64,18 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private boolean checkPermission() {
-        int music, video;
+        int music;
         int result;
 
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-            music = ContextCompat.checkSelfPermission(SplashScreen.this, Manifest.permission.READ_MEDIA_AUDIO);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            music = ContextCompat.checkSelfPermission(ScreenSpash.this, Manifest.permission.READ_MEDIA_VIDEO);
 
         } else {
-            result = ContextCompat.checkSelfPermission(SplashScreen.this, Manifest.permission.READ_EXTERNAL_STORAGE);
+            result = ContextCompat.checkSelfPermission(ScreenSpash.this, Manifest.permission.READ_EXTERNAL_STORAGE);
             return (result == PackageManager.PERMISSION_GRANTED);
         }
-        return (video == PackageManager.PERMISSION_GRANTED && music == PackageManager.PERMISSION_GRANTED);
+        return (music == PackageManager.PERMISSION_GRANTED);
     }
 
     private void requestPermissions() {
@@ -86,16 +85,15 @@ public class SplashScreen extends AppCompatActivity {
 
         } else
 */
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-            ActivityCompat.requestPermissions(SplashScreen.this, new String[]{Manifest.permission.READ_MEDIA_VIDEO, Manifest.permission.READ_MEDIA_AUDIO, Manifest.permission.POST_NOTIFICATIONS}, 10);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(ScreenSpash.this, new String[]{Manifest.permission.READ_MEDIA_AUDIO, Manifest.permission.POST_NOTIFICATIONS}, 10);
 
         }
         else
-            ActivityCompat.requestPermissions(SplashScreen.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 10);
+            ActivityCompat.requestPermissions(ScreenSpash.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 10);
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -105,7 +103,7 @@ public class SplashScreen extends AppCompatActivity {
                 start();
 
             else if(a<=2 && !permissionChecker(grantResults)) {
-                Toast.makeText(SplashScreen.this, "Permission is Required !!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(ScreenSpash.this, "Permission is Required !!!", Toast.LENGTH_LONG).show();
                 requestPermissions();
                 a++;
             }
@@ -119,22 +117,22 @@ public class SplashScreen extends AppCompatActivity {
             }*/
 
     }
-    public void start(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
+public void start(){
+    Intent intent = new Intent(this, MainActivity.class);
+    startActivity(intent);
+    finish();
+}
 
-    public boolean checkApiLevel33(){
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU)
-            return true;
-        else
-            return false;
+public boolean checkApiLevel33(){
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+        return true;
+    else
+        return false;
     }
 
     public boolean permissionChecker(int[] grantResults) {
         if (checkApiLevel33()) {
-            return (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED);
+            return (grantResults[0] == PackageManager.PERMISSION_GRANTED);
         }
         else
             return grantResults[0] == PackageManager.PERMISSION_GRANTED;
@@ -148,7 +146,7 @@ public class SplashScreen extends AppCompatActivity {
             intent.setData(Uri.parse("package:" + this.getPackageName()));
             // MainActivity1.this.startActivityForResult(intent,11);
             Toast toast;
-            toast = Toast.makeText(this, "Please give the PERMISSION from settings to Play Videos and Musics", Toast.LENGTH_LONG);
+            toast = Toast.makeText(this, "Please give the PERMISSION from settings to Play Musics", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
             startActivity(intent);

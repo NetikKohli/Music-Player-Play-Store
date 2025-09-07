@@ -1,4 +1,4 @@
-package com.nicekoh.musicplayer;
+package com.nicekoh.musicplayer.utils;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -11,6 +11,9 @@ import android.os.Build;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
+import com.nicekoh.musicplayer.MusicAct2;
+import com.nicekoh.musicplayer.R;
 
 public class NotificationUtils {
 
@@ -37,7 +40,7 @@ public class NotificationUtils {
             
             builder.setPriority(NotificationCompat.PRIORITY_HIGH);
 
-            Intent intent = new Intent(context,MusicAct2.class);
+            Intent intent = new Intent(context, MusicAct2.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
              PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_MUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);

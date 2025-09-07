@@ -1,4 +1,4 @@
-package com.nicekoh.musicplayer;
+package com.nicekoh.musicplayer.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -20,7 +20,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nicekoh.musicplayer.MusicAct2;
-import com.nicekoh.musicplayer.OpenVideo;
+import com.nicekoh.musicplayer.utils.OpenVideo;
 import com.nicekoh.musicplayer.R;
 import com.nicekoh.musicplayer.VideoModal;
 

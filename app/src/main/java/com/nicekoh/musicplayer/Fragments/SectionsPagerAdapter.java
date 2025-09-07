@@ -1,4 +1,4 @@
-package com.nicekoh.musicplayer.main;
+package com.nicekoh.musicplayer.Fragments;
 
 import android.content.Context;
 
@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.nicekoh.musicplayer.Fragments.MusicFragment;
 import com.nicekoh.musicplayer.R;
 
 /**
@@ -35,23 +34,20 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
         Fragment fragment=null;
-
+        if(position==0)
             fragment=new MusicFragment();
-        /*else
-            fragment=new MusicFragment();
-*/
         return fragment;
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return mContext.getResources().getString(TAB_TITLES[0]);
+        return mContext.getResources().getString(TAB_TITLES[position]);
     }
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
+        // Show 1 total pages.
         return 1;
     }
 }

@@ -1,7 +1,5 @@
 package com.nicekoh.musicplayer;
 
-import static com.nicekoh.musicplayer.MainActivity.countVid;
-
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
@@ -17,9 +15,9 @@ import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.ui.StyledPlayerView;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import static com.nicekoh.musicplayer.MainActivity.countVid;
 
 public class Music1 extends AppCompatActivity {
     static ExoPlayer exoPlayer;
@@ -28,7 +26,7 @@ public class Music1 extends AppCompatActivity {
     SharedPreferences sp;
     Uri uri;
     // int count=0;
-    private final long pos=0;
+    private long pos=0;
    // InterstitialAd mInterstitialAd=null;
 
 
@@ -44,7 +42,7 @@ public class Music1 extends AppCompatActivity {
         uri = getIntent().getData();
 
         sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        int countVid = sp.getInt("Count", 0);
+        countVid=sp.getInt("Count",0);
 
 
         MediaItem  mediaItem = MediaItem.fromUri(uri);
@@ -62,8 +60,7 @@ public class Music1 extends AppCompatActivity {
         exoPlayer.setPlayWhenReady(true);
         playerViewm.setControllerShowTimeoutMs(0);
         playerViewm.setControllerHideOnTouch(false);
-
-         MainActivity.countVid++;
+        MainActivity.countVid++;
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         //getSupportActionBar().hide();
         Fullscreen();

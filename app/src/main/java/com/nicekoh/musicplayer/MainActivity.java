@@ -9,7 +9,7 @@ import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
-import com.nicekoh.musicplayer.main.SectionsPagerAdapter;
+import com.nicekoh.musicplayer.Fragments.SectionsPagerAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -43,17 +43,11 @@ public class MainActivity extends AppCompatActivity {
         countVid = sp.getInt("Count", 0);
         setContentView(R.layout.activity_main1);
 
-      /*  Toolbar toolbar=findViewById(R.id.toolbarmain);
-        toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setBackground(getDrawable(R.drawable.bg));
-      */  //setSupportActionBar(toolbar);
-
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-
 
         if (savedInstanceState != null)
             countVid = savedInstanceState.getInt("CountVid", 0);
@@ -134,13 +128,7 @@ public class MainActivity extends AppCompatActivity {
             loadAds();
 */
         }
-
-    @Override
-    protected void onPause() {
-
-        super.onPause();
-    }
-}
+       }
 
 
 
